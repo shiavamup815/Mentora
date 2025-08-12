@@ -1,0 +1,7 @@
+dotenv
+fastapi
+aiofiles
+guardrails-ai
+pyyaml
+openai
+
