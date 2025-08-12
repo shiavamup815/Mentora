@@ -7,6 +7,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Tuple
+from fastapi.responses import FileResponse
 
 # Adjusting system path to locate necessary modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
@@ -77,10 +78,11 @@ class TopicPromptRequest(BaseModel):
 
 # --- API Endpoints ---
 
+
+
 @app.get("/")
-async def read_root():
-    """Root endpoint to check if the API is running."""
-    return {"message": "Mentora Me API is running!"}
+async def read_index():
+    return FileResponse('mentor/ui/index.html')
 
 @app.post("/login")
 async def login(req: LoginRequest):
