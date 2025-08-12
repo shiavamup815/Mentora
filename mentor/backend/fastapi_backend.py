@@ -79,10 +79,10 @@ class TopicPromptRequest(BaseModel):
 # --- API Endpoints ---
 
 
-
 @app.get("/")
 async def read_index():
-    return FileResponse("C:\\Users\\hackathonuser4\\Documents\\GitHub\\Mentora\\mentor\\ui\\index.html")
+    # This path is relative to your project's root folder (Mentora)
+    return FileResponse("mentor/ui/index.html")
 
 @app.post("/login")
 async def login(req: LoginRequest):
